@@ -2,15 +2,22 @@ pipeline {
     agent any
 
     stages {
+
+        stage('Verify Maven') {
+            steps {
+                sh 'mvn -version'
+            }
+        }
+
         stage('Build Maven Project') {
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
         }
 
         stage('Run Java Program') {
             steps {
-                bat 'java -cp target\\classes Main'
+                sh 'java -cp target/classes Main'
             }
         }
     }
