@@ -1,9 +1,8 @@
 pipeline {
-    agent any
-
-    tools {
-        maven 'Maven-3'  // Must match the name you gave in Step 1
-        // jdk 'JDK-17'  // Uncomment and add if you configured a JDK tool as well
+    agent {
+        docker {
+            image 'maven:3.9.6-eclipse-temurin-17'
+        }
     }
 
     stages {
@@ -19,4 +18,4 @@ pipeline {
             }
         }
     }
-}        
+}
