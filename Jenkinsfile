@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build Maven Project') {
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
         }
 
         stage('Run Java Program') {
             steps {
-                bat 'mvn exec:java -Dexec.mainClass=Main'
+                sh 'mvn exec:java -Dexec.mainClass=Main'
             }
         }
     }
